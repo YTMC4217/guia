@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva Elegante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Montserrat:wght@200;300&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fbe3e3 0%, #fdf1f1 100%);
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Banner Fijo */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 10vh;
+            background-color: #f9d6d5;
+            display: block;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            height: 12vh;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            letter-spacing: 4px;
+            color: #551c25;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            align-items: center;
+        }
+
+        /* Navegación con Flechas */
+        .nav-container {
+            position: fixed;
+            top: 12vh;
+            width: 100vw;
+            height: 6vh;
+            background: white;
+            display: flex;
+            align-items: center;
+            z-index: 999;
+            border-bottom: 1px solid rgba(85, 28, 37, 0.1);
+            font-size: 0.5vw;
+        }
+
+        .arrow {
+            width: 50px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #551c25;
+            font-size: 1.2rem;
+            background: white;
+            z-index: 10;
+        }
+
+        nav {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            overflow-x: hidden;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+            font-size: 0.5vw;
+        }
+
+
+
+        .menu-item {
+            display: inline;
+            padding: 0 10px;
+            color: #888;
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.5s;
+            cursor: pointer;
+        
+        }
+
+        @media (orientation: portrait) {
+            .menu-item {
+             font-size: 2vw !important;
+             font-family: 'Arial Narrow', Arial, sans-serif;
+             padding: 0 3vw;
+         }
+        }
+
+
+        .menu-item.active {
+            color: #551c25;
+            font-weight: 400;
+        }
+
+        /* Contenedor Horizontal de Diapositivas */
+        main {
+            margin-top: 18vh;
+            height: 82vh;
+            width: 100vw;
+            display: flex;
+            overflow-x: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+            min-width: 100vw;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 5vh 10vw;
+            gap: 5vw;
+            scroll-snap-align: start;
+            align-items: center;
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(85, 28, 37, 0.1);
+        }
+
+        .slide-content {
+            padding-right: 20px;
+        }
+
+        .slide-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            color: #551c25;
+            font-size: 2.5rem;
+            margin-bottom: 2vh;
+            line-height: 1.2;
+        }
+
+        .slide-content p {
+            font-weight: 300;
+            line-height: 1.8;
+            color: #444;
+            font-size: 1.1rem;
+        }
+
+        /* Ocultar barra de desplazamiento */
+        main::-webkit-scrollbar { display: none; }
+
+        @media (max-width: 768px) {
+            .slide {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+                padding: 2vh 5vw;
+            }
+            .slide-image { height: 30vh; }
+            .slide-content h2 { font-size: 1.8rem; }
+        }
+
+
+
+
+
+        #h1-header{
+             font-size: 1.5vw !important;
+             font-family: 'Arial Narrow', Arial, sans-serif;
+             padding: 4vh 0 0 ;
+             font-size: 3.7vw; 
+             justify-content: center; 
+             align-items: center; 
+             text-align: center;"
+         }
+
+
+        @media (orientation: portrait) {
+            #h1-header{
+             font-size: 2vw !important;
+             font-family: 'Arial Narrow', Arial, sans-serif;
+             padding: 4vw 2vw 2vw 2vw;
+             font-size: 3.7vw; 
+             justify-content: center; 
+             align-items: center; 
+             text-align: center;
+         }
+         #p-header{
+            font-size: 2.7vw; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+            padding: 0 5vw 0vw 5vw;
+         }
+
+        
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="h1-header">Aprendiendo a calmar el cuerpo cuando la mente se acelera</h1>
+        <p id="p-header" style="text-align: center;">Kit de crisis - Basado en el Manual de Entrenamiento en Habilidades DBT </p>
+    </header>
+
+    <div class="nav-container">
+        <div class="arrow" onclick="scrollMenu(-150)">&#9664;</div>
+        <nav id="carousel-menu">
+            <a href="#slide1" class="menu-item active">Recomendaciones generales</a>
+            <a href="#slide2" class="menu-item">Primera técnica</a>
+            <a href="#slide3" class="menu-item">Ejercicio práctico</a>
+            <a href="#slide4" class="menu-item">Segunda técnica</a>
+            <a href="#slide5" class="menu-item">Tercera técnica</a>
+            <a href="#slide6" class="menu-item active">Ejercicio práctico</a>
+            <a href="#slide7" class="menu-item">Cuarta técnica</a>
+            <a href="#slide8" class="menu-item">Ejercicio práctico</a>
+            <a href="#slide9" class="menu-item">Relajación múscular</a>
+            <a href="#slide10" class="menu-item">Quinta Técnica</a>
+            <a href="#slide11" class="menu-item">Conclusión</a>
+        </nav>
+        <div class="arrow" onclick="scrollMenu(150)">&#9654;</div>
+    </div>
+
+    <main id="main-slider">
+        <section id="slide1" class="slide">
+            <div class="slide-image">
+                <img src="images/Breathing.gif" alt="Breathing Exercise">
+            </div>
+            <div class="slide-content">
+                <h2>Recomendaciones generales</h2>
+                <ul>
+                    <li>Mantén tus rutinas básicas de autocuidado: sueño, alimentación y descanso.</li>
+                    <li>Planifica momentos de disfrute y relajación consciente.</li>
+                    <li>Refuerza tus límites personales y respeta tus espacios de pausa emocional.</li>
+                    <li>Recuerda que pedir ayuda o tomarte un tiempo también es una forma de autocuidado.</li>
+                </ul>
+            </div>
+        </section>
+
+<section id="slide2" class="slide">
+    <div class="slide-image">
+        <img src="images/lavando.jpg" alt="mujer lavando su rostro">
+    </div>
+    
+    <div class="slide-content" style="position: relative; display: flex; flex-direction: column; height: 60vh;">
+        <h2 style="font-size: 3.5vh; font-weight: 200; color: #551c25; margin-bottom: 2vh;">Cambia la Temperatura de tu cara con agua fría</h2>
+        
+        <div style="display: flex; align-items: center; flex: 1; overflow: hidden;">
+            <!-- Contenedor con efecto de desvanecimiento (Mask) -->
+            <div id="scroll-container" style="
+                flex: 1; 
+                height: 100%; 
+                overflow-y: hidden; 
+                position: relative;
+                mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+                -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);">
+                
+                <div id="scroll-text" style="padding: 40px 0; transition: transform 0.5s ease-out;">
+                    <p style="font-size: 2.4vh; font-weight: 300; margin-bottom: 2vh; line-height: 1.6;">Esta es una técnica que utiliza el contacto con el agua fría en el rostro para provocar una respuesta natural del cuerpo llamada “reflejo de inmersión”.</p>
+                    
+                    <p style="font-size: 2.4vh; font-weight: 300; margin-bottom: 2vh; line-height: 1.6;">Cuando tu cara siente el agua fría, el cuerpo interpreta que estás bajo el agua, lo que activa una reacción automática que ralentiza el ritmo cardíaco y redistribuye el flujo sanguíneo hacia los órganos vitales (cerebro y corazón).</p>
+                    
+                    <p style="font-size: 2.4vh; font-weight: 300; margin-bottom: 2vh; line-height: 1.6;">Este cambio físico genera una sensación de tranquilidad y control, ayudándote a bajar la intensidad emocional en momentos de angustia, enojo o impulsividad.</p>
+                    
+                    <h3 style="font-size: 2.8vh; font-weight: 300; color: #551c25; margin: 3vh 0 1vh 0;">¿Cuándo puedes practicar esta técnica?</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="font-size: 2.2vh; font-weight: 300; margin-bottom: 1vh; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #551c25;">•</span> Cuando sientas una emoción muy intensa y agobiante.
+                        </li>
+                        <li style="font-size: 2.2vh; font-weight: 300; margin-bottom: 1vh; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #551c25;">•</span> Cuando tengas deseos de actuar impulsivamente.
+                        </li>
+                        <li style="font-size: 2.2vh; font-weight: 300; margin-bottom: 1vh; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #551c25;">•</span> Cuando necesites bajar la activación corporal.
+                        </li>
+                    </ul>
+                    
+                    <p style="font-size: 2.4vh; font-weight: 300; margin-top: 3vh; line-height: 1.6; font-style: italic;">Este ejercicio ayuda a bajar rápidamente la intensidad emocional cuando te sientes abrumada, ansiosa, muy triste o con impulsos de actuar de forma impulsiva.</p>
+                </div>
+            </div>
+
+            <!-- Botones laterales -->
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-left: 20px;">
+                <button onclick="scrollText('up')" style="background: #f9d6d5; border: none; color: #551c25; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">&#9650;</button>
+                <button onclick="scrollText('down')" style="background: #f9d6d5; border: none; color: #551c25; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">&#9660;</button>
+            </div>
+        </div>
+
+<script>
+    (function() {
+        // Seleccionamos los elementos específicos de esta diapositiva
+        const scrollContainer = document.getElementById('scroll-container');
+        const scrollText = document.getElementById('scroll-text');
+        const slide2 = document.getElementById('slide2');
+        let currentPos = 0;
+        let isAutoScrolling = false;
+        let scrollInterval;
+
+        // Función para el movimiento automático lento
+        function startAutoScroll() {
+            if (isAutoScrolling) return;
+            isAutoScrolling = true;
+            
+            scrollInterval = setInterval(() => {
+                const maxScroll = scrollText.offsetHeight - scrollContainer.offsetHeight;
+                
+                // Si aún no ha llegado al final del texto (con un margen de 40px)
+                if (Math.abs(currentPos) < maxScroll + 40) {
+                    currentPos -= 0.5; // Velocidad del desplazamiento
+                    scrollText.style.transform = `translateY(${currentPos}px)`;
+                } else {
+                    clearInterval(scrollInterval);
+                    isAutoScrolling = false;
+                }
+            }, 30);
+        }
+
+        // Función para los botones laterales
+        window.scrollText = function(direction) {
+            clearInterval(scrollInterval); // Detener auto-scroll si el usuario toca los botones
+            isAutoScrolling = false;
+            
+            const maxScroll = scrollText.offsetHeight - scrollContainer.offsetHeight;
+            const step = 100; // Cuánto salta el texto por cada clic
+
+            if (direction === 'down') {
+                currentPos -= step;
+            } else {
+                currentPos += step;
+            }
+
+            // Evitar que el texto se salga de los límites
+            if (currentPos < -maxScroll - 40) currentPos = -maxScroll - 40;
+            if (currentPos > 0) currentPos = 0;
+
+            scrollText.style.transform = `translateY(${currentPos}px)`;
+        }
+
+        // Detectar cuando la diapositiva entra en pantalla
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Espera 1 segundo y arranca el desplazamiento solo
+                    setTimeout(startAutoScroll, 1000); 
+                } else {
+                    // Si el usuario cambia de diapositiva, se detiene y reinicia
+                    clearInterval(scrollInterval);
+                    isAutoScrolling = false;
+                    currentPos = 0;
+                    scrollText.style.transform = `translateY(0px)`;
+                }
+            });
+        }, { threshold: 0.7 }); // Se activa cuando se ve el 70% de la diapositiva
+
+        observer.observe(slide2);
+    })();
+</script>
+    </div>
+</section>
+
+
+
+
+<!--Diapositiva 3-->
+<section id="slide3" class="slide" style="display: flex; flex-direction: column; padding: 2vh 8vw; position: relative; overflow: hidden; justify-content: flex-start;">
+    
+    <!-- Espaciador mínimo -->
+    <div style="height: 2vh; width: 100%;"></div>
+
+    <div class="slide-content" style="max-width: 100%; width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: flex-start;">
+        
+        <h2 class="dynamic-title" style="font-weight: 200; color: #551c25; text-align: center; letter-spacing: 2px; line-height: 1.1; margin-bottom: 2vh;">
+            ¡Vamos a hacerlo!
+        </h2>
+
+        <!-- Grilla de pasos -->
+        <div class="steps-grid-s3" style="width: 100%; padding-bottom: 2vh;">
+            <!-- Paso 1 -->
+            <div class="step-item-s3" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1vh;">
+                <div class="step-circle" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #f9d6d5; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">1</div>
+                <p class="dynamic-text" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Inmerge tu rostro en agua fría o coloca una compresa fría sobre ojos y mejillas.</p>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="step-item-s3" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1vh;">
+                <div class="step-circle" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #e3f2fd; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">2</div>
+                <p class="dynamic-text" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Mantén el contacto con el frío por 30 segundos (temperatura mayor a 10 °C).</p>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="step-item-s3" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1vh;">
+                <div class="step-circle" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #f1f8e9; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">3</div>
+                <p class="dynamic-text" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Observa los cambios: Tu corazón late más lento y tu respiración se estabiliza.</p>
+            </div>
+
+            <!-- Paso 4 -->
+            <div class="step-item-s3" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1vh;">
+                <div class="step-circle" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #fff3e0; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">4</div>
+                <p class="dynamic-text" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Si no puedes usar agua, aplica frío en las manos o en la nuca.</p>
+            </div>
+
+            <!-- Paso 5 -->
+            <div class="step-item-s3" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1vh;">
+                <div class="step-circle" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #ede7f6; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">5</div>
+                <p class="dynamic-text" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Finaliza con respiración lenta: Retira el frío y respira suavemente.</p>
+            </div>
+
+            <!-- Paso 6 -->
+            <div class="step-item-s3" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1vh;">
+                <div class="step-circle" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #fce4ec; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">6</div>
+                <p class="dynamic-text" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Nota cómo el cuerpo se siente más liviano y tranquilo después del ejercicio.</p>
+            </div>
+        </div>
+
+        <!-- Botón de Acción -->
+        <div id="btn-action-s3" onclick="triggerNextStepS3()" class="btn-s3-style">
+            &#10140;
+        </div>
+
+        <style>
+            .steps-grid-s3 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2vh 4vw;
+                align-items: center;
+            }
+
+            /* --- TAMAÑOS EN HORIZONTAL (vh < vw) --- */
+            @media (orientation: landscape) {
+                .dynamic-title { font-size: 8vh; } /* Duplicado aprox */
+                .dynamic-text { font-size: 3.7vh; } /* Duplicado aprox */
+                .step-circle { font-size: 4vh; min-width: 7vh; height: 7vh; }
+            }
+
+            /* --- TAMAÑOS EN VERTICAL (vh > vw) --- */
+            @media (orientation: portrait) {
+                .steps-grid-s3 { grid-template-columns: 1fr; gap: 1.5vh; }
+                .dynamic-title { font-size: 5vh; } /* 4vh + 25% */
+                .dynamic-text { font-size: 2.3vh; } /* 1.85vh + 25% */
+                .step-circle { font-size: 3vh; }
+                .btn-s3-style { width: 7vh; height: 7vh; bottom: 3vh; right: 6vw; }
+            }
+
+            .btn-s3-style {
+                position: absolute;
+                bottom: 4vh;
+                right: 4vw;
+                width: 8vh;
+                height: 8vh;
+                background-color: #551c25;
+                color: #f9d6d5;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 3.5vh;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                animation: pulse-s3 2s infinite;
+                z-index: 10;
+                transition: opacity 0.5s ease;
+            }
+
+            @keyframes pulse-s3 {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(85, 28, 37, 0.4); }
+                70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(85, 28, 37, 0); }
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(85, 28, 37, 0); }
+            }
+        </style>
+
+        <script>
+            (function() {
+                const stepsS3 = document.querySelectorAll('#slide3 .step-item-s3');
+                const btnS3 = document.getElementById('btn-action-s3');
+                let countS3 = 0;
+
+                window.triggerNextStepS3 = function() {
+                    if (countS3 < stepsS3.length) {
+                        stepsS3[countS3].style.opacity = '1';
+                        stepsS3[countS3].style.transform = 'translateY(0)';
+                        countS3++;
+                        
+                        if (countS3 === stepsS3.length) {
+                            btnS3.style.opacity = '0';
+                            btnS3.style.pointerEvents = 'none';
+                        }
+                    }
+                };
+
+                const obsS3 = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            countS3 = 0;
+                            stepsS3.forEach(s => { 
+                                s.style.opacity = '0'; 
+                                s.style.transform = 'translateY(15px)'; 
+                            });
+                            btnS3.style.opacity = '1';
+                            btnS3.style.pointerEvents = 'auto';
+                        }
+                    });
+                }, { threshold: 0.1 });
+                obsS3.observe(document.getElementById('slide3'));
+            })();
+        </script>
+    </div>
+</section>
+<!--diapositiva 4-->
+
+
+
+<section id="slide4" class="slide">
+    <div class="slide-image">
+        <!-- Imagen ubicada en la carpeta images -->
+        <img src="images/ejercicio.jpg" alt="Ejercicio Intenso">
+    </div>
+    <div class="slide-content">
+        <h2 style="font-size: 3.5vh; font-weight: 200; color: #551c25; margin-bottom: 3vh;">Ejercicio intenso</h2>
+        
+        <div class="fade-in-text">
+            <p style="font-size: 2.3vh; font-weight: 300; line-height: 1.6; margin-bottom: 2.5vh; color: #444;">
+                Usa el ejercicio cuando estés agitado, cuando estés enojado, cuando no puedas detener el rumiar, cuando necesites mejorar tu estado de ánimo y disposición por la mañana, y en cualquier otro momento en el que te haya sido útil en el pasado.
+            </p>
+            
+            <p style="font-size: 2.3vh; font-weight: 300; line-height: 1.6; color: #444; padding: 20px; background: rgba(249, 214, 213, 0.3); border-radius: 10px; border-left: 4px solid #551c25;">
+                El estado de ansiedad disminuye significativamente si aumenta tu frecuencia cardíaca al <strong>70 % del máximo</strong>.
+            </p>
+        </div>
+    </div>
+
+    <style>
+        .fade-in-text {
+            animation: fadeInOpacity 2s ease-in;
+        }
+
+        @keyframes fadeInOpacity {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script>
+        (function() {
+            const slide4 = document.getElementById('slide4');
+            const content = slide4.querySelector('.fade-in-text');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        content.style.animation = 'none';
+                        content.offsetHeight; // Truco para reiniciar animación
+                        content.style.animation = 'fadeInOpacity 2s ease-in';
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(slide4);
+        })();
+    </script>
+</section>
+
+<!--
+        <section id="slide4" class="slide">
+            <div class="slide-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bbbda546697a?auto=format&fit=crop&q=80&w=800" alt="Arquitectura">
+            </div>
+            <div class="slide-content">
+                <h2>Arquitectura</h2>
+                <p>Estructuras de software robustas que permiten la integración de modelos de inteligencia artificial y procesamiento de datos a gran escala.</p>
+            </div>
+        </section>
+-->
+
+
+
+
+
+
+
+
+        <section id="slide5" class="slide">
+            <div class="slide-image">
+                <img src="images/respira.jpg" alt="Conclusiones">
+            </div>
+            <div class="slide-content">
+                <h2>Respiración Pausada rítmica</h2>
+                
+
+                <p>Cuando respiras más lento y profundo, el cuerpo recibe la señal de que no hay peligro inmediato. Esto activa el sistema de calma (parasimpático).</p>
+            </div>
+        </section>
+
+
+<!--Sexto Slide-->
+
+
+
+<section id="slide6" class="slide" style="display: flex; flex-direction: column; padding: 2vh 8vw; position: relative; overflow: hidden; justify-content: flex-start;">
+    
+    <!-- Espaciador mínimo -->
+    <div style="height: 2vh; width: 100%;"></div>
+
+    <div class="slide-content" style="max-width: 100%; width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: flex-start;">
+        
+        <h2 class="dynamic-title-s6" style="font-weight: 200; color: #551c25; text-align: center; letter-spacing: 2px; line-height: 1.1; margin-bottom: 2vh;">
+            ¡Vamos a hacerlo!
+        </h2>
+
+        <!-- Grilla de pasos -->
+        <div class="steps-grid-s6 scroll-hidden" style="width: 100%; padding-bottom: 5vh; flex: 1; overflow-y: auto;">
+            
+            <div class="step-item-s6" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1.5vh;">
+                <div class="step-circle-s6" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #f9d6d5; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">1</div>
+                <p class="dynamic-text-s6" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Inhala por la nariz contando 4 segundos.</p>
+            </div>
+
+            <div class="step-item-s6" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1.5vh;">
+                <div class="step-circle-s6" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #e3f2fd; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">2</div>
+                <p class="dynamic-text-s6" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Sostén el aire 2 segundos.</p>
+            </div>
+
+            <div class="step-item-s6" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1.5vh;">
+                <div class="step-circle-s6" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #f1f8e9; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">3</div>
+                <p class="dynamic-text-s6" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Exhala por la boca lentamente durante 6 segundos.</p>
+            </div>
+
+            <div class="step-item-s6" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1.5vh;">
+                <div class="step-circle-s6" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #fff3e0; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">4</div>
+                <p class="dynamic-text-s6" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Repite el ciclo 5 veces.</p>
+            </div>
+
+            <div class="step-item-s6" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1.5vh;">
+                <div class="step-circle-s6" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #ede7f6; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">5</div>
+                <p class="dynamic-text-s6" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">Mientras respiras, nota: El aire entrando y saliendo.</p>
+            </div>
+
+            <div class="step-item-s6" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(15px); transition: all 0.5s ease; margin-bottom: 1.5vh;">
+                <div class="step-circle-s6" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #fce4ec; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">6</div>
+                <p class="dynamic-text-s6" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0;">El peso de tu cuerpo en la silla. Los puntos de apoyo.</p>
+            </div>
+        </div>
+
+        <div id="btn-next-step-s6" onclick="showNextStepS6()" class="btn-s6-style">
+            &#10140;
+        </div>
+
+        <style>
+            .scroll-hidden::-webkit-scrollbar { display: none; }
+            .scroll-hidden { -ms-overflow-style: none; scrollbar-width: none; }
+
+            .steps-grid-s6 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2vh 4vw;
+                align-items: center;
+            }
+
+            @media (orientation: landscape) {
+                .dynamic-title-s6 { font-size: 8vh; } 
+                .dynamic-text-s6 { font-size: 3.5vh; } 
+                .step-circle-s6 { font-size: 3.5vh; min-width: 7vh; height: 7vh; }
+            }
+
+            @media (orientation: portrait) {
+                .steps-grid-s6 { grid-template-columns: 1fr; gap: 1.5vh; }
+                .dynamic-title-s6 { font-size: 5vh; } 
+                .dynamic-text-s6 { font-size: 2.3vh; } 
+                .step-circle-s6 { font-size: 3vh; }
+                .btn-s6-style { width: 7vh; height: 7vh; bottom: 3vh; right: 6vw; }
+            }
+
+            .btn-s6-style {
+                position: absolute;
+                bottom: 4vh;
+                right: 4vw;
+                width: 8vh;
+                height: 8vh;
+                background-color: #551c25;
+                color: #f9d6d5;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 3.5vh;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                animation: pulse-s6 2s infinite;
+                z-index: 50;
+                transition: opacity 0.5s ease;
+            }
+
+            @keyframes pulse-s6 {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(85, 28, 37, 0.4); }
+                70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(85, 28, 37, 0); }
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(85, 28, 37, 0); }
+            }
+        </style>
+
+        <script>
+            (function() {
+                const stepsS6 = document.querySelectorAll('#slide6 .step-item-s6');
+                const btnS6 = document.getElementById('btn-next-step-s6');
+                const containerS6 = document.querySelector('#slide6 .steps-grid-s6');
+                let countS6 = 0;
+
+                window.showNextStepS6 = function() {
+                    if (countS6 < stepsS6.length) {
+                        stepsS6[countS6].style.opacity = '1';
+                        stepsS6[countS6].style.transform = 'translateY(0)';
+                        
+                        if (containerS6) {
+                            containerS6.scrollTo({
+                                top: containerS6.scrollHeight,
+                                behavior: 'smooth'
+                            });
+                        }
+
+                        countS6++;
+                        
+                        if (countS6 === stepsS6.length) {
+                            btnS6.style.opacity = '0';
+                            btnS6.style.pointerEvents = 'none';
+                        }
+                    }
+                };
+
+                const obsS6 = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            countS6 = 0;
+                            stepsS6.forEach(s => { 
+                                s.style.opacity = '0'; 
+                                s.style.transform = 'translateY(15px)'; 
+                            });
+                            if (btnS6) {
+                                btnS6.style.opacity = '1';
+                                btnS6.style.pointerEvents = 'auto';
+                            }
+                            if (containerS6) containerS6.scrollTop = 0;
+                        }
+                    });
+                }, { threshold: 0.1 });
+                obsS6.observe(document.getElementById('slide6'));
+            })();
+        </script>
+    </div>
+</section>
+
+
+
+<!--Septima-->
+
+<section id="slide7" class="slide">
+    <div class="slide-image">
+        <!-- Puedes colocar una imagen sugerida aquí o usar el estilo de dos columnas -->
+        <img src="images/relax.jpg" alt="Relajación Muscular">
+    </div>
+    <div class="slide-content">
+        <h2 style="font-size: 3vh; font-weight: 200; color: #551c25; margin-bottom: 2vh; line-height: 1.2;">
+            Aprendiendo a soltar la tensión del cuerpo a través de la Relajación Muscular en Paralelo
+        </h2>
+        
+        <div class="fade-in-content">
+            <p style="font-size: 2.2vh; font-weight: 300; line-height: 1.6; color: #444; margin-bottom: 2vh;">
+                Este ejercicio te ayuda a calmar el cuerpo y la mente, liberando la tensión acumulada por el estrés o las emociones intensas.
+            </p>
+            
+            <p style="font-size: 2.2vh; font-weight: 400; font-style: italic; color: #551c25; margin-bottom: 4vh;">
+                "Cuando el cuerpo se relaja, la mente también encuentra un espacio para descansar."
+            </p>
+
+            <h3 style="font-size: 2.6vh; font-weight: 300; color: #551c25; margin-bottom: 2vh;">
+                ¿Cuándo puedes practicar esta técnica?
+            </h3>
+            
+            <ul style="list-style: none; padding: 0;">
+                <li style="font-size: 2.1vh; font-weight: 300; margin-bottom: 1.5vh; padding-left: 25px; position: relative; color: #444;">
+                    <span style="position: absolute; left: 0; color: #f9d6d5; font-size: 1.5rem;">•</span>
+                    Antes o después de una situación difícil.
+                </li>
+                <li style="font-size: 2.1vh; font-weight: 300; margin-bottom: 1.5vh; padding-left: 25px; position: relative; color: #444;">
+                    <span style="position: absolute; left: 0; color: #f9d6d5; font-size: 1.5rem;">•</span>
+                    Cuando sientas el cuerpo rígido o el corazón acelerado.
+                </li>
+                <li style="font-size: 2.1vh; font-weight: 300; margin-bottom: 1.5vh; padding-left: 25px; position: relative; color: #444;">
+                    <span style="position: absolute; left: 0; color: #f9d6d5; font-size: 1.5rem;">•</span>
+                    Como parte de tu rutina diaria de bienestar.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        .fade-in-content {
+            animation: fadeInSimple 1.5s ease-out;
+        }
+
+        @keyframes fadeInSimple {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script>
+        (function() {
+            const slide7 = document.getElementById('slide7');
+            const content = slide7.querySelector('.fade-in-content');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        content.style.animation = 'none';
+                        content.offsetHeight; 
+                        content.style.animation = 'fadeInSimple 1.5s ease-out';
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(slide7);
+        })();
+    </script>
+</section>
+
+
+<!-- octava-->
+
+
+
+
+
+
+
+
+<section id="slide8" class="slide" style="display: flex; flex-direction: column; padding: 0 8vw; position: relative; overflow: hidden; justify-content: flex-start; background-color: #fae5e4 !important;">
+    
+    <!-- Espaciador para evitar el nav -->
+    <div style="height: 10vh; width: 100%; background: transparent !important;"></div>
+
+    <div class="slide-content" style="max-width: 100%; width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: flex-start; background: transparent !important;">
+        
+        <h2 class="dynamic-title-s8" style="font-weight: 200; color: #551c25; text-align: center; letter-spacing: 2px; line-height: 1.1; margin-bottom: 1.5vh; background: transparent !important;">
+            ¡Vamos a hacerlo!
+        </h2>
+
+        <!-- Contenedor de pasos -->
+        <div class="steps-grid-s8 scroll-hidden" style="width: 100%; padding-bottom: 10vh; flex: 1; overflow-y: auto; background: transparent !important;">
+            
+            <div class="step-item-s8" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 0.6vh; background: transparent !important;">
+                <div class="step-circle-s8" style="min-width: 3.5vh; height: 3.5vh; border-radius: 50%; background: #f9d6d5; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">1</div>
+                <p class="dynamic-text-s8" style="font-weight: 300; line-height: 1.2; color: #444; margin: 0; background: transparent !important;">Siéntate o recuéstate en una posición cómoda.</p>
+            </div>
+
+            <div class="step-item-s8" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 0.6vh; background: transparent !important;">
+                <div class="step-circle-s8" style="min-width: 3.5vh; height: 3.5vh; border-radius: 50%; background: #e3f2fd; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">2</div>
+                <p class="dynamic-text-s8" style="font-weight: 300; line-height: 1.2; color: #444; margin: 0; background: transparent !important;">Cierra los ojos y conecta con tu respiración.</p>
+            </div>
+
+            <div class="step-item-s8" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 0.6vh; background: transparent !important;">
+                <div class="step-circle-s8" style="min-width: 3.5vh; height: 3.5vh; border-radius: 50%; background: #f1f8e9; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">3</div>
+                <p class="dynamic-text-s8" style="font-weight: 300; line-height: 1.2; color: #444; margin: 0; background: transparent !important;">Activa tu cuerpo: Tensa varios grupos de músculos.</p>
+            </div>
+
+            <div class="step-item-s8" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 0.6vh; background: transparent !important;">
+                <div class="step-circle-s8" style="min-width: 3.5vh; height: 3.5vh; border-radius: 50%; background: #fff3e0; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">4</div>
+                <p class="dynamic-text-s8" style="font-weight: 300; line-height: 1.2; color: #444; margin: 0; background: transparent !important;">Aprieta puños, eleva hombros y contrae abdomen.</p>
+            </div>
+
+            <div class="step-item-s8" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 0.6vh; background: transparent !important;">
+                <div class="step-circle-s8" style="min-width: 3.5vh; height: 3.5vh; border-radius: 50%; background: #ede7f6; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">5</div>
+                <p class="dynamic-text-s8" style="font-weight: 300; line-height: 1.2; color: #444; margin: 0; background: transparent !important;">Mantén la tensión durante 5 a 10 segundos.</p>
+            </div>
+
+            <div class="step-item-s8" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 0.6vh; background: transparent !important;">
+                <div class="step-circle-s8" style="min-width: 3.5vh; height: 3.5vh; border-radius: 50%; background: #fce4ec; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">6</div>
+                <p class="dynamic-text-s8" style="font-weight: 300; line-height: 1.2; color: #444; margin: 0; background: transparent !important;">Exhala y deja ir toda la tensión de golpe.</p>
+            </div>
+
+            <div class="step-item-s8" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 0.6vh; background: transparent !important;">
+                <div class="step-circle-s8" style="min-width: 3.5vh; height: 3.5vh; border-radius: 50%; background: #e0f2f1; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">7</div>
+                <p class="dynamic-text-s8" style="font-weight: 300; line-height: 1.2; color: #444; margin: 0; background: transparent !important;">Observa las sensaciones de alivio y ligereza.</p>
+            </div>
+
+            <div class="step-item-s8" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 0.6vh; background: transparent !important;">
+                <div class="step-circle-s8" style="min-width: 3.5vh; height: 3.5vh; border-radius: 50%; background: #fffde7; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">8</div>
+                <p class="dynamic-text-s8" style="font-weight: 300; line-height: 1.2; color: #444; margin: 0; background: transparent !important;">Termina con tres respiraciones lentas.</p>
+            </div>
+
+            <div class="step-item-s8" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 0.6vh; background: transparent !important;">
+                <div class="step-circle-s8" style="min-width: 3.5vh; height: 3.5vh; border-radius: 50%; background: #f3e5f5; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">9</div>
+                <p class="dynamic-text-s8" style="font-weight: 300; line-height: 1.2; color: #444; margin: 0; background: transparent !important;">Tu cuerpo se vuelve más liviano y tranquilo.</p>
+            </div>
+        </div>
+
+        <div id="btn-next-step-s8" onclick="showNextStepS8()" class="btn-s8-style">
+            &#10140;
+        </div>
+
+        <style>
+            #slide8 .scroll-hidden::-webkit-scrollbar { display: none; }
+            #slide8 .scroll-hidden { -ms-overflow-style: none; scrollbar-width: none; }
+
+            /* Grid Horizontal */
+            #slide8 .steps-grid-s8 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2vh 4vw;
+            }
+            #slide8 .dynamic-title-s8 { font-size: 4vh; }
+            #slide8 .dynamic-text-s8 { font-size: 2vh; }
+
+            /* AJUSTE VERTICAL OPTIMIZADO */
+            @media (orientation: portrait) {
+                #slide8 .steps-grid-s8 {
+                    grid-template-columns: 1fr !important;
+                    gap: 1vh !important;
+                }
+                #slide8 .dynamic-title-s8 { font-size: 3.8vh !important; }
+                #slide8 .dynamic-text-s8 { font-size: 1.65vh !important; } /* Tamaño reducido */
+                #slide8 .step-circle-s8 { min-width: 3vh !important; height: 3vh !important; font-size: 1.4vh !important; }
+                #slide8 .btn-s8-style { bottom: 20px !important; right: 20px !important; width: 50px !important; height: 50px !important; }
+            }
+
+            #slide8 .btn-s8-style {
+                position: absolute;
+                bottom: 40px;
+                right: 40px;
+                width: 60px;
+                height: 60px;
+                background-color: #551c25 !important;
+                color: #f9d6d5;
+                border-radius: 50%;
+                display: none; 
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 24px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                animation: pulse-s8-local 2s infinite;
+                z-index: 100;
+                transition: opacity 0.5s ease;
+            }
+
+            @keyframes pulse-s8-local {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(85, 28, 37, 0.4); }
+                70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(85, 28, 37, 0); }
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(85, 28, 37, 0); }
+            }
+        </style>
+
+        <script>
+            (function() {
+                const stepsS8 = document.querySelectorAll('#slide8 .step-item-s8');
+                const btnS8 = document.getElementById('btn-next-step-s8');
+                let countS8 = 0;
+
+                window.showNextStepS8 = function() {
+                    if (countS8 < stepsS8.length) {
+                        stepsS8[countS8].style.opacity = '1';
+                        stepsS8[countS8].style.transform = 'translateY(0)';
+                        countS8++;
+                        if (countS8 === stepsS8.length) {
+                            btnS8.style.opacity = '0';
+                            btnS8.style.pointerEvents = 'none';
+                        }
+                    }
+                };
+
+                const obsS8 = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const b = document.getElementById('btn-next-step-s8');
+                        if (entry.isIntersecting) {
+                            if (b) b.style.display = 'flex';
+                        } else {
+                            if (b) b.style.display = 'none';
+                            countS8 = 0;
+                            stepsS8.forEach(s => { 
+                                s.style.opacity = '0'; 
+                                s.style.transform = 'translateY(20px)'; 
+                            });
+                            if (b) { b.style.opacity = '1'; b.style.pointerEvents = 'auto'; }
+                        }
+                    });
+                }, { threshold: 0.1 });
+                obsS8.observe(document.getElementById('slide8'));
+            })();
+        </script>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!--novena-->
+
+
+
+
+
+
+
+
+        <section id="slide9" class="slide">
+            <div class="slide-image">
+                <img src="images/gruposmusculares.jpeg" alt="Conclusiones">
+            </div>
+            <div class="slide-content">
+                <h2 style="font-size: 3.2vh;">Aquí encuentras los grupos de músculos:</h2>
+                <p style="font-size: 2.5vh;">Practica tensar y relajar cada grupo muscular (primero los pequeños, luego medianos y grandes) observando las sensaciones durante 10–15 segundos. Cuando logres hacerlo con todo el cuerpo, alterna entre sentirte como un robot (tenso) y una muñeca de trapo (relajada). Repite el ejercicio 3–4 veces al día hasta poder relajarte rápidamente.</p>
+
+        </section>
+
+
+        <section id="slide10" class="slide" style="display: flex; flex-direction: column; padding: 0 8vw; position: relative; overflow: hidden; justify-content: flex-start; background-color: #fae5e4 !important;">
+    
+    <!-- Espaciador para evitar el nav -->
+    <div style="height: 10vh; width: 100%; background: transparent !important;"></div>
+
+    <div class="slide-content" style="max-width: 100%; width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: flex-start; background: transparent !important;">
+        
+        <!-- Título -->
+        <h2 class="dynamic-title-s10" style="font-weight: 200; color: #551c25; text-align: center; letter-spacing: 2px; line-height: 1.1; margin-bottom: 1.5vh; background: transparent !important; font-size: 4vh;">
+            Técnica STOP — Detente, Respira y Observa
+        </h2>
+
+        <!-- Párrafo introductorio -->
+        <p class="intro-text-s10" style="font-size: 2.2vh; font-weight: 300; text-align: center; color: #444; margin-bottom: 3vh; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.4; background: transparent !important;">
+            Utilízala para evitar respuestas impulsivas durante conflictos o discusiones.
+        </p>
+
+        <!-- Contenedor de pasos STOP -->
+        <div class="steps-grid-s10 scroll-hidden" style="width: 100%; padding-bottom: 10vh; flex: 1; overflow-y: auto; background: transparent !important;">
+            
+            <!-- Paso S -->
+            <div class="step-item-s10" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 2vh; background: transparent !important;">
+                <div class="step-circle-s10" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #f9d6d5; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 2.2vh;">S</div>
+                <p class="dynamic-text-s10" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0; background: transparent !important; font-size: 2vh;">
+                    <strong>(Stop):</strong> Detente antes de actuar o responder de forma automática.
+                </p>
+            </div>
+
+            <!-- Paso T -->
+            <div class="step-item-s10" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 2vh; background: transparent !important;">
+                <div class="step-circle-s10" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #e3f2fd; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 2.2vh;">T</div>
+                <p class="dynamic-text-s10" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0; background: transparent !important; font-size: 2vh;">
+                    <strong>(Take a breath):</strong> Respira profundamente para regular tu sistema.
+                </p>
+            </div>
+
+            <!-- Paso O -->
+            <div class="step-item-s10" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 2vh; background: transparent !important;">
+                <div class="step-circle-s10" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #f1f8e9; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 2.2vh;">O</div>
+                <p class="dynamic-text-s10" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0; background: transparent !important; font-size: 2vh;">
+                    <strong>(Observe):</strong> Nota qué estás sintiendo en tu cuerpo y mente.
+                </p>
+            </div>
+
+            <!-- Paso P -->
+            <div class="step-item-s10" style="display: flex; align-items: center; gap: 1.5vw; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; margin-bottom: 2vh; background: transparent !important;">
+                <div class="step-circle-s10" style="min-width: 5vh; height: 5vh; border-radius: 50%; background: #fff3e0; display: flex; align-items: center; justify-content: center; color: #551c25; font-weight: 400; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 2.2vh;">P</div>
+                <p class="dynamic-text-s10" style="font-weight: 300; line-height: 1.3; color: #444; margin: 0; background: transparent !important; font-size: 2vh;">
+                    <strong>(Proceed):</strong> Actúa desde la calma, no desde el impulso.
+                </p>
+            </div>
+        </div>
+
+        <!-- Botón pulsante Slide 10 -->
+        <div id="btn-next-s10" onclick="showNextS10()" class="btn-s10-style">
+            &#10140;
+        </div>
+
+        <style>
+            #slide10 .scroll-hidden::-webkit-scrollbar { display: none; }
+            #slide10 .scroll-hidden { -ms-overflow-style: none; scrollbar-width: none; }
+
+            /* Grid Horizontal */
+            #slide10 .steps-grid-s10 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3vh 5vw;
+            }
+
+            /* AJUSTE VERTICAL OPTIMIZADO */
+            @media (orientation: portrait) {
+                #slide10 .steps-grid-s10 {
+                    grid-template-columns: 1fr !important;
+                    gap: 1.5vh !important;
+                }
+                #slide10 .dynamic-title-s10 { font-size: 3.5vh !important; }
+                #slide10 .intro-text-s10 { font-size: 1.8vh !important; margin-bottom: 2vh !important; }
+                #slide10 .dynamic-text-s10 { font-size: 1.7vh !important; }
+                #slide10 .step-circle-s10 { min-width: 4vh !important; height: 4vh !important; font-size: 1.8vh !important; }
+                #slide10 .btn-s10-style { bottom: 20px !important; right: 20px !important; width: 55px !important; height: 55px !important; }
+            }
+
+            #slide10 .btn-s10-style {
+                position: absolute;
+                bottom: 40px;
+                right: 40px;
+                width: 60px;
+                height: 60px;
+                background-color: #551c25 !important;
+                color: #f9d6d5;
+                border-radius: 50%;
+                display: none; 
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 24px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                animation: pulse-s10-local 2s infinite;
+                z-index: 100;
+                transition: opacity 0.5s ease;
+            }
+
+            @keyframes pulse-s10-local {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(85, 28, 37, 0.4); }
+                70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(85, 28, 37, 0); }
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(85, 28, 37, 0); }
+            }
+        </style>
+
+        <script>
+            (function() {
+                const stepsS10 = document.querySelectorAll('#slide10 .step-item-s10');
+                const btnS10 = document.getElementById('btn-next-s10');
+                let countS10 = 0;
+
+                window.showNextS10 = function() {
+                    if (countS10 < stepsS10.length) {
+                        stepsS10[countS10].style.opacity = '1';
+                        stepsS10[countS10].style.transform = 'translateY(0)';
+                        countS10++;
+                        if (countS10 === stepsS10.length) {
+                            btnS10.style.opacity = '0';
+                            btnS10.style.pointerEvents = 'none';
+                        }
+                    }
+                };
+
+                const obsS10 = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const b = document.getElementById('btn-next-s10');
+                        if (entry.isIntersecting) {
+                            if (b) b.style.display = 'flex';
+                        } else {
+                            if (b) b.style.display = 'none';
+                            countS10 = 0;
+                            stepsS10.forEach(s => { 
+                                s.style.opacity = '0'; 
+                                s.style.transform = 'translateY(20px)'; 
+                            });
+                            if (b) { b.style.opacity = '1'; b.style.pointerEvents = 'auto'; }
+                        }
+                    });
+                }, { threshold: 0.1 });
+                obsS10.observe(document.getElementById('slide10'));
+            })();
+        </script>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="slide11" class="slide" style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding-top: 2vh; height: 82vh; overflow: hidden;">
+    <div class="slide-content" style="max-width: 800px; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        
+        <!-- Título pegado al borde superior del área de la slide -->
+        <br><br><h2 style="font-size: 3.5vh; font-weight: 200; color: #551c25; margin: 0 0 1vh 0; letter-spacing: 2px; line-height: 1.2;">
+            Recuerda
+        </h2>
+
+        <!-- Imagen con tamaño estrictamente controlado y sin márgenes -->
+        <div style="width: 100%; display: flex; justify-content: center; margin: 0; padding: 0; line-height: 0;">
+            <img src="images/personas.jpg" alt="Conclusiones" style="justify-content: center;  max-height: 40vh; width: 90vw; border-radius: 12px; box-shadow: 0 8px 25px rgba(85, 28, 37, 0.1); object-fit: contain;">
+        </div>
+
+        <!-- Bloque de texto con margen superior mínimo para subirlo -->
+        <div class="fade-in-conclusions" style="margin-top: 2vh; width: 100%;">
+            <p style="font-size: 2.3vh; font-weight: 300; line-height: 1.4; color: #444; font-style: italic; max-width: 700px; margin: 0 auto; text-align: center;">
+                "Esta guía es un mapa para los días difíciles. No busca que el dolor desaparezca mágicamente, sino que aprendas a caminar con él sin que tome el mando de tu vida. No necesitas hacerlo perfecto; solo necesitas estar presente..."
+            </p>
+        </div>
+    </div>
+
+    <style>
+        .fade-in-conclusions {
+            animation: fadeInSimple 1s ease-out forwards;
+        }
+
+        @keyframes fadeInSimple {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script>
+        (function() {
+            const slide11 = document.getElementById('slide11');
+            const content = slide11.querySelector('.fade-in-conclusions');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        content.style.animation = 'none';
+                        content.offsetHeight; 
+                        content.style.animation = 'fadeInSimple 1s ease-out forwards';
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(slide11);
+        })();
+    </script>
+</section>
+
+
+    </main>
+
+    <script>
+        const slider = document.getElementById('main-slider');
+        const menuItems = document.querySelectorAll('.menu-item');
+        const carousel = document.getElementById('carousel-menu');
+
+        // Scroll del menú manual (flechas)
+        function scrollMenu(amount) {
+            carousel.scrollBy({ left: amount, behavior: 'smooth' });
+        }
+
+        // Sincronizar menú al desplazar diapositivas
+        slider.addEventListener('scroll', () => {
+            const index = Math.round(slider.scrollLeft / window.innerWidth);
+            
+            menuItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                    // Centrar el item en el menú carrusel
+                    const offset = item.offsetLeft - (carousel.offsetWidth / 2) + (item.offsetWidth / 2);
+                    carousel.scrollTo({ left: offset, behavior: 'smooth' });
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        });
+
+        // Click en menú desplaza slider
+        menuItems.forEach((item, index) => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                slider.scrollTo({
+                    left: window.innerWidth * index,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Ajuste en cambio de tamaño de ventana
+        window.addEventListener('resize', () => {
+            const activeIndex = Array.from(menuItems).findIndex(i => i.classList.contains('active'));
+            slider.scrollTo({ left: window.innerWidth * activeIndex });
+        });
+    </script>
+</body>
+</html>
